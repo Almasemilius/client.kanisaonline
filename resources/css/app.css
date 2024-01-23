@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.login-label{
+  @apply text-sm 2xl:text-base
+}
+
+.login-input-field{
+  @apply w-full px-16 text-xs 2xl:text-base py-4 focus:ring-0 focus:outline-0 border-gray-300  bg-gray-100 rounded-sm focus:border-gray-400 placeholder:font-semibold
+}
+
+.login-svg{
+  @apply h-6 w-6 2xl:h-8 2xl:w-8 stroke-gray-500
+}
+
+.svg-container{
+  @apply absolute inset-y-0 my-auto h-7 2xl:h-8 left-5
+}
+
+.side-nav-svg{
+  @apply h-6 w-6 2xl:h-8 2xl:w-8
+}
+.dashboard-svg{
+  @apply h-9 w-9 2xl:h-8 2xl:w-8 p-2
+}
+
+.nav-options{
+  @apply list-disc space-y-1 text-base 2xl:space-y-5
+}
+.nav-options li{
+  @apply py-2 
+}
+
+.nav-options-container{
+  @apply p-3 2xl:p-5 pl-10 opacity-70
+}
+
+.dashboard-card-container{
+  @apply grid md:grid-cols-2 xl:grid-cols-4 gap-5 lg:gap-0 w-full md:bg-white lg:p-5 2xl:p-10
+}
+
+.dashboard-card{
+  @apply flex flex-col items-center md:items-start border-r last:border-none px-5 p-10 md:py-0 xl:p-5 bg-white
+}
+
+.dashboard-number{
+  @apply text-2xl 2xl:text-5xl font-semibold
+}
+
+.dashboard-card-title{
+  @apply text-base 2xl:text-xl
+}
+
+.input-field{
+  @apply rounded-md border-gray-200 bg-gray-50 text-gray-700
+}
+
+.input-group{
+  @apply space-y-3 
+}
+
+.required-label{
+  @apply text-red-500
+}
+
+/* #container {
+  width: 1000px;
+  margin: 20px auto;
+} */
+.ck-editor__editable[role="textbox"] {
+  /* editing area */
+  min-height: 200px;
+  @apply bg-black
+  
+}
+.ck-content .image {
+  /* block images */
+  max-width: 80%;
+  margin: 20px auto;
+}
+
+.primary-btn{
+  @apply flex items-center gap-3 bg-primary text-white px-5 py-3 rounded-md
+}
+
+.event-svg{
+  @apply h-5 w-5 fill-primary
+}
+.event-svg-sm{
+  @apply h-4 w-4 fill-primary
+}
+
+.event-ribbon{
+  @apply grid grid-cols-3 h-16 bg-white rounded-md relative bottom-8 w-10/12 mx-auto justify-items-center shadow-sm
+}
+.event-ribbon-sm{
+  @apply grid grid-cols-3 h-12 bg-white rounded-md relative bottom-8 w-11/12 mx-auto justify-items-center shadow-sm
+}
+
+.event-ribbon-item{
+  @apply flex items-center  gap-1
+}
+
+.side-nav-link{
+  @apply text-gray-400
+}
+
+.side-nav-group{
+  @apply w-full flex justify-between items-center p-3 cursor-pointer
+}
+
+.page-title{
+  @apply text-base lg:text-lg 2xl:text-2xl font-semibold truncate
+}
+
+.breadcrumb-text{
+  @apply text-xs
+}
+
+.header-text{
+  @apply text-xl lg:text-3xl font-semibold  py-5
+}
+
+.counter-button{
+  @apply h-8 w-10 flex items-center justify-center px-1 text-center bg-white
+} 
+
+.time-counter{
+  @apply text-xs text-center
+}
+
+.sub-header-text{
+  @apply text-lg font-semibold
+}
+
+.event-view-svg{
+  @apply h-7 lg:h-5 w-7 lg:w-5 fill-primary rounded
+}
+
+.event-view-ribbon-container{
+  @apply flex items-center gap-1 px-2
+}
+
+.event-view-label{
+  @apply text-xs
+}
+
+.card-container{
+  @apply flex items-center justify-between gap-1 p-3 rounded-md 
+}
+.card-container-svg{
+  @apply h-8 w-8 p-2  rounded-full 
+}
+.card-container-sub-svg{
+  @apply h-5 w-5 p-1  rounded-full 
+}
+.card-container-label{
+  @apply text-xs lg:text-sm
+}
+
+.counter{
+  @apply rounded-md bg-gray-100 border-gray-200
+}
+
+.input-label{
+  @apply font-semibold text-sm
+}
+
+.link-style{
+  @apply hover:text-indigo-900 hover:font-semibold
+}
+
+.type-label{
+  @apply px-5 py-1 rounded-md
+}
+
+.type-label-active{
+  @apply bg-primary text-white transition-all duration-500  
+}
