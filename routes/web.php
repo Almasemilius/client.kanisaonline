@@ -2,6 +2,7 @@
 
 use App\Livewire\AddTicket;
 use App\Livewire\BookingList;
+use App\Livewire\CompleteUserProfile;
 use App\Livewire\OrganizerList;
 use App\Livewire\Pages\AddEvent;
 use App\Livewire\Pages\AddPartner;
@@ -18,6 +19,8 @@ use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Organizers;
 use App\Livewire\Pages\TicketManagement;
 use App\Livewire\Pages\PartnerManagement;
+use App\Livewire\Profile\UploadProfilePicture as ProfileUploadProfilePicture;
+use App\Livewire\UploadProfilePicture;
 use App\Models\Organizer;
 use Illuminate\Support\Facades\Route;
 
@@ -42,6 +45,9 @@ Route::get('event-show/{event}', EventShow::class)->name('event.show');
 //     ->name('dashboard');
 Route::middleware('auth')->group(function () {
     Route::get('dashboard', Dashboard::class)->name('dashboard');
+
+    Route::get('complete-user-profile', CompleteUserProfile::class)->name('complete.user.profile');
+    Route::get('upload-profile-image', UploadProfilePicture::class)->name('upload.profile.image');
 
 
     Route::get('events-management', EventManagement::class)->name('events.management');
