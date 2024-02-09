@@ -23,7 +23,7 @@ class ResetPassword extends Component
         if(preg_match('/\d/', $this->password) && preg_match('/[^a-zA-Z0-9\s]/', $this->password)){
             $this->user->password = $this->password;
             $this->user->save();
-            $this->dispatch('')
+            $this->dispatch('next-step',2);
         }
 
 

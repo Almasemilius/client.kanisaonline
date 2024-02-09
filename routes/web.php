@@ -19,9 +19,7 @@ use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Organizers;
 use App\Livewire\Pages\TicketManagement;
 use App\Livewire\Pages\PartnerManagement;
-use App\Livewire\Profile\UploadProfilePicture as ProfileUploadProfilePicture;
-use App\Livewire\UploadProfilePicture;
-use App\Models\Organizer;
+use App\Livewire\Profile\UploadProfilePicture;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -5,7 +5,11 @@
         @break
 
         @case(2)
-            
+            @livewire('profile.upload-profile-picture')
+        @break
+
+        @case(3)
+            @livewire('profile.update-date-of-birth')
         @break
 
     @default

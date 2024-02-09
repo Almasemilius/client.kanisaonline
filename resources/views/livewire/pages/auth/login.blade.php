@@ -79,7 +79,7 @@ new #[Layout('layouts.guest')] class extends Component
     }
 }; ?>
 
-<form wire:submit="login" autocomplete="off" class="w-3/5 h-4/5 bg-white m-auto grid grid-cols-2 rounded-md overflow-hidden">
+<form wire:submit="login" autocomplete="off" class="w-3/5 h-4/5 2xl:h-4/6 bg-white m-auto grid grid-cols-2 rounded-md overflow-hidden">
     <div class="w-full h-full flex flex-col justify-between">
         <div class="p-10">
             <img src="https://res.cloudinary.com/do6zpq1dx/image/upload/v1706051141/KanisaOnline/logo_jbdbax.png" alt="" class="h-14">
@@ -92,7 +92,7 @@ new #[Layout('layouts.guest')] class extends Component
                 <hr>
             </div>
 
-            <div class="space-y-10">
+            <div class="">
                 <div class="login-input-group">
                     <label for="email" class="login-label ">
                         Phone or Email
@@ -106,9 +106,9 @@ new #[Layout('layouts.guest')] class extends Component
                             </svg>
                         </div>
                     </div>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
-                <div class="login-input-group">
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                <div class="login-input-group mt-10">
                     <label for="password" class="login-label ">
                         Password
                     </label>
@@ -124,11 +124,11 @@ new #[Layout('layouts.guest')] class extends Component
                             </svg>
                         </div>
                     </div>
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
                 </div>
+                <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>
 
-            <div class="w-full flex justify-center items-center py-5">
+            <div class="w-full flex justify-center items-center py-10">
                 <h5 class=" text-gray-400 lg:text-description text-sm">
                     Forgot Password?
                     <a href="/reset-password" class="text-primary font-semibold">
