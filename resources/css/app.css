@@ -6,9 +6,15 @@
 .login-label{
   @apply text-xs text-primary 2xl:text-base pl-5 
 }
+.login-label-select{
+  @apply text-xs text-primary 2xl:text-base pl-3 
+}
 
 .login-input-field{
   @apply w-full px-16 text-xs 2xl:text-base border-none focus:ring-0 focus:outline-0 focus-within:bg-none focus:bg-none bg-gray-50 rounded-sm  placeholder:font-semibold font-semibold text-black
+}
+.onboarding-input-field{
+  @apply w-full px-3 h-10 text-xs 2xl:text-base border-none focus:ring-0 focus:outline-0 focus-within:bg-none focus:bg-none bg-gray-50 rounded-sm  placeholder:font-semibold font-semibold text-black
 }
 
 .login-svg{
@@ -62,6 +68,9 @@
 }
 .login-input-group{
   @apply w-full space-y-1 bg-gray-50 border rounded-md
+}
+.onboarding-input-group{
+  @apply w-full bg-gray-50 border rounded-md
 }
 
 .required-label{
@@ -181,4 +190,19 @@
 
 .type-label-active{
   @apply bg-primary text-white transition-all duration-500  
+}
+
+.dob-picker{
+    @apply w-full h-14 border-2 border-gray-200 rounded-md bg-gray-50
+}
+.dob-picker-select{
+    @apply w-full h-10 border-none rounded-md bg-gray-50 capitalize
+}
+
+.navigation-link{
+    @apply text-white font-semibold
+}
+
+.navigation-button{
+    @apply bg-white w-full text-left p-3 rounded-full
 }

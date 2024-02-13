@@ -15,12 +15,19 @@ class UploadProfilePicture extends Component
     ];
 
     function uploadImage() {
+        $user = auth()->user;
         if($this->profileImage){
             $extension = $this->profileImage->getClientOriginalExtension();
-            $this->profileImage->storeAs(path: 'profiles', name: auth()->user()->email.'.'.$extension);
-
+            $name = auth()->user()->email.'.'.$extension;
+            $this->profileImage->storeAs(path: 'profiles', name: $name);
+            $user->image_url = $name;
+            $user->save();
             $this->dispatch('next-step',3);
         }
+    }
+
+    function nextStep() {
+        $this->dispatch('next-step',3);
     }
 
     public function render()

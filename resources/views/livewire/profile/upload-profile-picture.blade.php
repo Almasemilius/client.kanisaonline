@@ -24,7 +24,7 @@
         <input wire:model="profileImage" type="file" class="hidden" name="profile" id="profile">
     </div>
     <div class="flex flex-col gap-4 w-full items-center">
-        <a href="#" class="text-primary text-center">Skip</a>
+        <button wire:click="nextStep" class="text-primary text-center">Skip</button>
         <button wire:click="uploadImage" class="bg-primary text-center w-3/5 py-3 text-white rounded-full">Save</button>
     </div>
 
