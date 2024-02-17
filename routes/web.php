@@ -6,6 +6,7 @@ use App\Livewire\CompleteUserProfile;
 use App\Livewire\OrganizerList;
 use App\Livewire\Pages\AddEvent;
 use App\Livewire\Pages\AddPartner;
+use App\Livewire\Pages\AddPublication;
 use App\Livewire\Pages\BookingPage;
 use App\Livewire\Pages\CategoryManagement;
 use App\Livewire\Pages\Dashboard;
@@ -49,7 +50,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('events-management', EventManagement::class)->name('events.management');
-    Route::get('add-event/{event?}', AddEvent::class)->name('add.event');
+    Route::get('add-publication/{event?}', AddPublication::class)->name('add.publication');
     Route::get('event-types/{eventType?}', EventTypes::class)->name('event.types');
     Route::get('event-type-list', EventTypeList::class)->name('event.type.list');
     Route::get('event-categories', EventCategory::class)->name('event.categories');

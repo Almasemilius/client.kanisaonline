@@ -11,6 +11,8 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <script src="assets/vendor/ckeditor5/build/ckeditor.js"></script>
+
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -56,7 +58,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="w-full">
+            <div class="w-full p-10">
                 {{ $slot }}
             </div>
         </main>

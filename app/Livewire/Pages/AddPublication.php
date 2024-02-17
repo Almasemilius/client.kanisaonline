@@ -12,7 +12,7 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
 
-class AddEvent extends Component
+class AddPublication extends Component
 {
     use WithFileUploads;
     public $startDate;
@@ -104,6 +104,6 @@ class AddEvent extends Component
         $eventTypes = EventType::get();
         $categories = Category::get();
         $sponsors = Sponsor::get();
-        return view('livewire.pages.add-event', compact('organizers', 'eventTypes', 'categories','sponsors'));
+        return view('livewire.pages.add-publication', compact('organizers', 'eventTypes', 'categories','sponsors'));
     }
 }
