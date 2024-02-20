@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="w-full p-10">
+            <div class="w-full p-10 h-[calc(100vh-64px)]  overflow-y-auto">
                 {{ $slot }}
             </div>
         </main>
