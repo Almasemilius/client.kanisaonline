@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'image_url',
+        'new_user',
         'date_of_birth',
         'marital_status',
         'spouse_name',

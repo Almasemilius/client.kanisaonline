@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Profile;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -15,15 +16,15 @@ class UploadProfilePicture extends Component
     ];
 
     function uploadImage() {
-        $user = auth()->user;
+        $user = Auth::user();
         if($this->profileImage){
             $extension = $this->profileImage->getClientOriginalExtension();
             $name = auth()->user()->email.'.'.$extension;
             $this->profileImage->storeAs(path: 'profiles', name: $name);
             $user->image_url = $name;
             $user->save();
-            $this->dispatch('next-step',3);
         }
+        $this->dispatch('next-step',3);
     }
 
     function nextStep() {
