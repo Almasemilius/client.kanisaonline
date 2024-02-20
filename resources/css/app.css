@@ -206,3 +206,7 @@
 .navigation-button{
     @apply bg-white w-full text-left p-3 rounded-full
 }
+
+.new-label{
+    @apply font-semibold text-sm
+}

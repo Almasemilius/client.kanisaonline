@@ -15,49 +15,16 @@ use Illuminate\Support\Str;
 class AddPublication extends Component
 {
     use WithFileUploads;
-    public $startDate;
-    public $startTime;
-    public $endDate;
-    public $endTime;
     public $description;
-    public $refund;
     public $thumbnail;
-    public array $selectedSponsors = array();
-
-    public Event $event;
 
     protected $rules = [
-        'event.organizer_id' => 'required',
-        'event.event_type_id' => 'required',
-        'event.category_id' => 'required',
-        'event.title' => 'required',
-        'description' => 'required',
-        'event.timezone' => 'required',
-        'event.latitude' => 'required|numeric',
-        'event.longitude' => 'required|numeric',
-        'event.venue_address' => 'required',
-        'event.more_info_link' => 'required',
-        'startDate' => 'required|date|after:yesterday',
-        'endDate' => 'nullable|date|after:startDate',
-        'thumbnail' => 'nullable|image',
+        
     ];
 
     function mount($event = null)
     {
-        if($event){
-            $this->event = $event;
-            $this->description = $this->event->description;
-            $this->refund = $this->event->refund_policy;
-
-            $this->startDate = Carbon::make($this->event->start_date_time)->format('Y-m-d');
-            $this->startTime = Carbon::make($this->event->start_date_time)->format('H:i');
-
-            $this->endDate = Carbon::make($this->event->end_date_time)->format('Y-m-d');
-            $this->endTime = Carbon::make($this->event->end_date_time)->format('H:i');
-            // $this->selectedSponsors = $event?->sponsors?->toArray();
-        }else{
-            $this->event = new Event();
-        }
+        
     }
 
     function addEvent()
