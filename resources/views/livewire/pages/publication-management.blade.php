@@ -21,7 +21,7 @@
                         </g>
                     </svg>
                     <li>
-                        <a href="{{route('events.management')}}" class="inline-flex items-center px-2 py-1.5 space-x-1.5 font-normal rounded-md hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none">
+                        <a href="{{route('publication.management')}}" class="inline-flex items-center px-2 py-1.5 space-x-1.5 font-normal rounded-md hover:bg-neutral-100 hover:text-neutral-900 focus:outline-none">
 
                             <span class="breadcrumb-text">Events Management</span>
                         </a>
@@ -40,11 +40,11 @@
 
                 </ol>
                 <div>
-                    <a href="{{route('add.event')}}" class=" primary-btn">
+                    <a href="{{route('add.publication')}}" class=" primary-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 " viewBox="0 0 24 24">
                             <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v14m-7-7h14" />
                         </svg>
-                        <span class="breadcrumb-text">Add Event</span>
+                        <span class="breadcrumb-text">Publish Sermon</span>
                     </a>
                 </div>
             </nav>
@@ -58,8 +58,8 @@
                     <option value="12">12</option>
                     <option value="24">24</option>
                 </select>
-                @if ($events->count() > 0)
-                <span>Showing {{ $events->firstItem() }} to {{ $events->lastItem() }} of {{ $events->total() }} entries</span>
+                @if ($publications->count() > 0)
+                <span>Showing {{ $publications->firstItem() }} to {{ $publications->lastItem() }} of {{ $publications->total() }} entries</span>
                 @endif
             </div>
             <form>
@@ -88,49 +88,39 @@
                                         <th class="px-1 w-5 py-3 text-xs font-medium text-left uppercase">
                                             <input type="checkbox" name="" id="" disabled>
                                         </th>
-                                        <th class="px-3 py-3 w-60 text-xs font-medium text-left uppercase">Title</th>
-                                        <th class="px-3 py-3 text-xs font-medium text-left uppercase w-40">Organizer
+                                        <th class="px-3 py-3 text-xs font-medium text-left uppercase">Image</th>
+                                        <th class="px-3 py-3 text-xs font-medium text-left uppercase w-40">Title
                                         </th>
-                                        <th class="px-2 py-3 text-xs font-medium text-left uppercase">Type</th>
+                                        <th class="px-2 py-3 text-xs font-medium text-left uppercase">Author</th>
                                         <th class="px-3 py-3 text-xs font-medium text-left uppercase">Category</th>
-                                        <th class="px-3 py-3 text-xs font-medium text-left uppercase">Ticket</th>
-                                        <th class="px-3 py-3 text-xs font-medium text-center uppercase">Status</th>
-                                        <th class="px-3 py-3 text-xs font-medium text-center uppercase">Featured</th>
+                                        <th class="px-3 py-3 text-xs font-medium text-left uppercase">Files</th>
+                                        <th class="px-3 py-3 text-xs font-medium text-center uppercase">Date</th>
                                         <th class="px-3 py-3 text-xs font-medium text-center uppercase">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-neutral-200">
-                                    @foreach ($events as $event)
+                                    @foreach ($publications as $publication)
                                     <tr class="text-neutral-800">
                                         <td>
                                             <input type="checkbox" name="" id="">
                                         </td>
-                                        <td class="px-3 py-4 text-sm font-medium whitespace-nowrap">{{$event->title}}
+                                        <td class="px-3 py-4 text-sm font-medium whitespace-nowrap">
+                                            <img src="{{asset('storage/publications/'.$publication->thumbnail)}}" class="object-cover h-10 w-10" alt="">
                                         </td>
-                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$event->organizer->name}}</td>
-                                        <td class="px-2 py-4 text-sm whitespace-nowrap">{{$event->eventType->name}}</td>
-                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$event->category->name}}</td>
-                                        <td class=" text-sm whitespace-nowrap">
-                                            <a href="{{route('ticket.management', $event->id)}}" class="px-3 py-3 bg-black rounded-md text-white ">Manage</a>
-                                        </td>
-                                        <td class=" text-sm whitespace-nowrap">
-                                            <select name="" id="" class="appearance-none h-10 bg-primary border-none text-white px-8 py-2 rounded-md">
-                                                <option value="">Active</option>
-                                            </select>
-                                        </td>
-                                        <td class="text-sm whitespace-nowrap">
-                                            <select name="" id="" class="h-10 bg-primary border-none text-white px-8 py-2 rounded-md stroke-white border-white fill-white">
-                                                <option value="">Yes</option>
-                                            </select>
-                                        </td>
+                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$publication->title}}</td>
+                                        <td class="px-2 py-4 text-sm whitespace-nowrap">{{$publication->author}}</td>
+                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$publication->category}}</td>
+                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$publication->attachment_type}}</td>
+                                        <td class="px-3 py-4 text-sm whitespace-nowrap">{{$publication->created_at}}</td>
+
                                         <td class="px-5 py-4 text-sm font-medium text-right whitespace-nowrap flex gap-2">
-                                            <a href="#">
+                                            <a href="{{route('show.publication',$publication->id)}}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-primary p-2 bg-blue-100 h-8 w-8 rounded-full" viewBox="0 0 24 24">
                                                     <path d="M12 16q1.875 0 3.188-1.313T16.5 11.5q0-1.875-1.313-3.188T12 7q-1.875 0-3.188 1.313T7.5 11.5q0 1.875 1.313 3.188T12 16Zm0-1.8q-1.125 0-1.913-.788T9.3 11.5q0-1.125.788-1.913T12 8.8q1.125 0 1.913.788T14.7 11.5q0 1.125-.787 1.913T12 14.2Zm0 4.8q-3.35 0-6.113-1.8t-4.362-4.75q-.125-.225-.187-.462t-.063-.488q0-.25.063-.488t.187-.462q1.6-2.95 4.362-4.75T12 4q3.35 0 6.113 1.8t4.362 4.75q.125.225.188.463t.062.487q0 .25-.063.488t-.187.462q-1.6 2.95-4.362 4.75T12 19Z" />
                                                 </svg>
 
                                             </a>
-                                            <a href="{{route('add.event', $event->id)}}">
+                                            <a href="{{route('add.publication',$publication->id)}}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="fill-secondary p-2 bg-orange-100 h-8 w-8 rounded-full fill-orange-700" viewBox="0 0 24 24">
                                                     <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a.996.996 0 0 0 0-1.41l-2.34-2.34a.996.996 0 0 0-1.41 0l-1.83 1.83l3.75 3.75l1.83-1.83z" />
                                                 </svg>
@@ -148,6 +138,6 @@
         </div>
     </div>
     <div>
-        {{$events->links()}}
+        {{$publications->links()}}
     </div>
 </div>

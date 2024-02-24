@@ -3,9 +3,9 @@
     setActiveAccordion(id) { 
         this.activeAccordion = (this.activeAccordion == id) ? '' : id 
     } 
-}" class="w-[18vw] hidden bg-white h-screen overflow-hidden md:flex flex-col  py-5 2xl:gap-1 ">
+}" class="w-64 bg-primary h-[calc(100vh-64px)] flex flex-col justify-center border-r px-3">
     <div class="w-full flex flex-col items-center">
-        <div class="pt-4 bg-white pb-1 border-t border-gray-200 absolute inset-x-0 h-screen z-50">
+        <div class="pt-4 bg-white pb-1 border-t border-gray-200 absolute inset-x-0 h-screen">
             <!-- <div class="px-4">
                 <div class="font-medium text-base text-gray-800" x-data="{ name: '{{ auth()->user()->name }}' }" x-text="name" x-on:profile-updated.window="name = $event.detail.name"></div>
                 <div class="font-medium text-sm text-gray-500">{{ auth()->user()->email }}</div>

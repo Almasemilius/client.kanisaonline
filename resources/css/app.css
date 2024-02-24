@@ -33,7 +33,7 @@
 }
 
 .nav-options{
-  @apply list-disc space-y-1 text-base 2xl:space-y-5
+  @apply space-y-1 text-base 2xl:space-y-5
 }
 .nav-options li{
   @apply py-2 
@@ -122,7 +122,7 @@
 }
 
 .side-nav-link{
-  @apply text-gray-400
+  @apply text-white
 }
 
 .side-nav-group{

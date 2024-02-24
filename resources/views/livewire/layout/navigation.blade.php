@@ -164,12 +164,6 @@ new class extends Component
                         </div>
                     </li>
                 </ul>
-
-                <!-- Authentication -->
-                <!-- <button wire:click="logout" class="w-full text-left">
-                    <x-responsive-nav-link>
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link> -->
                 </button>
             </div>
         </div>

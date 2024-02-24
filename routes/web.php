@@ -20,6 +20,9 @@ use App\Livewire\Pages\HomePage;
 use App\Livewire\Pages\Organizers;
 use App\Livewire\Pages\TicketManagement;
 use App\Livewire\Pages\PartnerManagement;
+use App\Livewire\Pages\PublicationManagement;
+use App\Livewire\Pages\Settingpage;
+use App\Livewire\Pages\ViewPublication;
 use App\Livewire\Profile\UploadProfilePicture;
 use Illuminate\Support\Facades\Route;
 
@@ -49,8 +52,14 @@ Route::middleware('auth')->group(function () {
     Route::get('upload-profile-image', UploadProfilePicture::class)->name('upload.profile.image');
 
 
-    Route::get('events-management', EventManagement::class)->name('events.management');
-    Route::get('add-publication/{event?}', AddPublication::class)->name('add.publication');
+    Route::get('publication-management', PublicationManagement::class)->name('publication.management');
+    Route::get('add-publication/{publication?}', AddPublication::class)->name('add.publication');
+    Route::get('show-publication/{publication}', ViewPublication::class)->name('show.publication');
+
+
+    Route::get('setting', Settingpage::class)->name('setting');
+
+
     Route::get('event-types/{eventType?}', EventTypes::class)->name('event.types');
     Route::get('event-type-list', EventTypeList::class)->name('event.type.list');
     Route::get('event-categories', EventCategory::class)->name('event.categories');

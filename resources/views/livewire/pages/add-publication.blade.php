@@ -13,9 +13,9 @@
 
                  <div class="w-full input-group">
                      <label for="title" class="new-label">Title <span class="required-label">*</span></label>
-                     <input wire:model="event.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
+                     <input wire:model="publication.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
                      <div class="w-full flex items-end">
-                         <x-error-message property='event.title' />
+                         <x-error-message property='publication.title' />
                      </div>
                  </div>
                  <!-- Image Upload -->
@@ -55,58 +55,60 @@
 
              </div>
          </div>
-         <div class="col-span-4 space-y-5">
-             <div class="duration-200 ease-out bg-white" x-cloak>
-                 <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
-                     Refund Policy
-                 </label>
+         <div class="col-span-4 flex flex-col justify-between">
+             <div class="space-y-8">
+                 <div class="duration-200 ease-out bg-white" x-cloak>
+                     <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
+                         Author Name
+                     </label>
 
-                 <input wire:model="event.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
-                 <div class="w-full flex items-end">
-                     <x-error-message property='event.title' />
+                     <input wire:model="publication.author" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
+                     <div class="w-full flex items-end">
+                         <x-error-message property='publication.author' />
+                     </div>
                  </div>
-             </div>
-             <div class="duration-200 ease-out bg-white" x-cloak>
-                 <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
-                     Category
-                 </label>
+                 <div class="duration-200 ease-out bg-white" x-cloak>
+                     <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
+                         Category
+                     </label>
 
-                 <select wire:model="event.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
-                     <option value="" class="text-gray-300">Select Category</option>
-                     <option value="" class="text-gray-300">Option 1</option>
-                     <option value="" class="text-gray-300">Option 2</option>
-                 </select>
-                 <div class="w-full flex items-end">
-                     <x-error-message property='event.title' />
+                     <select wire:model="publication.category" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
+                         <option value="Cat1" class="text-gray-300">Select Category</option>
+                         <option value="Cat1" class="text-gray-300">Option 1</option>
+                         <option value="Cat1" class="text-gray-300">Option 2</option>
+                     </select>
+                     <div class="w-full flex items-end">
+                         <x-error-message property='publication.category' />
+                     </div>
                  </div>
-             </div>
-             <div class="duration-200 ease-out bg-white" x-cloak>
-                 <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
-                     Files
-                 </label>
+                 <div class="duration-200 ease-out bg-white" x-cloak>
+                     <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
+                         Files
+                     </label>
 
-                 <select wire:model="event.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
-                     <option value="" class="text-gray-300">Select FileType</option>
-                     <option value="" class="text-gray-300">Video</option>
-                     <option value="" class="text-gray-300">Audio</option>
-                 </select>
-                 <div class="w-full flex items-end">
-                     <x-error-message property='event.title' />
+                     <select wire:model="publication.attachment_type" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
+                         <option value="" class="text-gray-300">Select FileType</option>
+                         <option value="video" class="text-gray-300">Video</option>
+                         <option value="audio" class="text-gray-300">Audio</option>
+                     </select>
+                     <div class="w-full flex items-end">
+                         <x-error-message property='publication.attachment_type' />
+                     </div>
                  </div>
-             </div>
-             <div class="duration-200 ease-out bg-white" x-cloak>
-                 <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
-                     Video Link
-                 </label>
+                 <div class="duration-200 ease-out bg-white" x-cloak>
+                     <label @click="setActiveAccordion(id)" class="flex items-center justify-between w-full py-4 font-semibold text-left select-none">
+                         Video Link
+                     </label>
 
-                 <input wire:model="event.title" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
-                 <div class="w-full flex items-end">
-                     <x-error-message property='event.title' />
+                     <input wire:model="publication.link" type="text" id="title" class="input-field w-full placeholder:text-gray-300" placeholder="Enter Title">
+                     <div class="w-full flex items-end">
+                         <x-error-message property='publication.link' />
+                     </div>
                  </div>
              </div>
              <div class="w-full flex justify-between">
-                <button class="primary-btn-rounded-outlined">Discard</button>
-                <button class="primary-btn-rounded">Publish</button>
+                 <button class="primary-btn-rounded-outlined">Discard</button>
+                 <button wire:click="addPublication" class="primary-btn-rounded">Publish</button>
              </div>
          </div>
      </div>
