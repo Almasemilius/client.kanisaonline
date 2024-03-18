@@ -4,8 +4,8 @@
         <hr>
         <div class="w-full grid grid-cols-4">
             <div class="w-full h-52  flex">
-                <div class="h-40 w-40 rounded-full bg-red-200">
-
+                <div class="h-40 w-40 rounded-full">
+            <img src="{{asset('storage/profiles/'.auth()->user()->image_url)}}" alt="">
                 </div>
             </div>
             <div class="w-full flex flex-col gap-2">
@@ -30,7 +30,7 @@
         </div>
         <hr>
         <div class="w-full grid grid-cols-4">
-            <div class="w-full h-52  flex ">
+            <div class="w-full  flex ">
                 <h4 class="text-xs text-gray-400 font-semibold">SPIRITUAL INFORMATION</h4>
             </div>
             <div class="w-full flex flex-col gap-2">
@@ -39,11 +39,9 @@
                 <span>Salvation Status:</span>
             </div>
             <div class="w-full flex flex-col gap-2">
-                <span>{{auth()->user()->name}}</span>
-                <span>Male</span>
-                <span>Tanzanian</span>
-                <span>English</span>
-                <span>Active</span>
+                <span>Yes</span>
+                <span>Yes</span>
+                <span>Yes</span>
             </div>
             <div class="w-full h-full flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 p-2 border border-primary rounded-full fill-primary" viewBox="0 0 24 24">
@@ -65,11 +63,12 @@
                 <span>Children:</span>
             </div>
             <div class="w-full flex flex-col gap-2">
-                <span>{{auth()->user()->name}}</span>
-                <span>Male</span>
-                <span>Tanzanian</span>
-                <span>English</span>
-                <span>Active</span>
+                <span>{{auth()->user()->date_of_birth ?? "Not Set"}}</span>
+                <span>{{auth()->user()->education_level ?? "Not Set"}}</span>
+                <span>{{auth()->user()->employment_status ?? "Not Set"}}</span>
+                <span>{{auth()->user()->marital_status ?? "Not Set"}}</span>
+                <span>{{auth()->user()->spouse_name ?? "Not Set"}}</span>
+                <span>{{auth()->user()->number_of_children ?? "Not Set"}}</span>
             </div>
             <div class="w-full h-full flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 p-2 border border-primary rounded-full fill-primary" viewBox="0 0 24 24">
@@ -88,9 +87,9 @@
                 <span>Email:</span>
             </div>
             <div class="w-full flex flex-col gap-2">
-                <span>{{auth()->user()->name}}</span>
-                <span>Male</span>
-                <span>Tanzanian</span>
+                <span>Salasala</span>
+                <span>{{auth()->user()->phone ?? "Not Set"}}</span>
+                <span>{{auth()->user()->email ?? "Not Set"}}</span>
             </div>
             <div class="w-full h-full flex justify-center items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 p-2 border border-primary rounded-full fill-primary" viewBox="0 0 24 24">

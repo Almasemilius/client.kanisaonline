@@ -29,7 +29,7 @@
   @apply h-6 w-6 2xl:h-8 2xl:w-8
 }
 .dashboard-svg{
-  @apply h-9 w-9 2xl:h-8 2xl:w-8 p-2
+  @apply h-7 w-7 2xl:h-8 2xl:w-8 p-2
 }
 
 .nav-options{
@@ -56,7 +56,7 @@
 }
 
 .dashboard-card-title{
-  @apply text-base 2xl:text-xl
+  @apply text-lg 2xl:text-xl
 }
 
 .input-field{
@@ -97,7 +97,10 @@
   @apply flex items-center gap-3 bg-primary text-white px-5 py-3 rounded-md
 }
 .primary-btn-rounded{
-  @apply flex items-center gap-3 bg-primary text-white px-5 py-3 rounded-full
+  @apply flex items-center gap-3 bg-primary text-white font-bold px-5 py-2 rounded-full
+}
+.danger-btn-rounded{
+  @apply flex items-center gap-3 bg-red-600 text-white font-bold px-5 py-3 rounded-full
 }
 .primary-btn-rounded-outlined{
   @apply flex items-center gap-3 bg-white border border-primary text-primary px-5 py-3 rounded-full
@@ -138,7 +141,7 @@
 }
 
 .header-text{
-  @apply text-xl lg:text-3xl font-semibold  py-5
+  @apply text-xl lg:text-2xl font-semibold  
 }
 
 .counter-button{
@@ -216,3 +219,47 @@
 .new-label{
     @apply font-semibold text-sm
 }
+
+.church-info-block{
+    @apply w-full grid grid-cols-3 py-3 gap-3 text-sm
+}
+
+.church-info-block-diff{
+    @apply w-full grid grid-cols-4 py-3 gap-3 text-sm
+}
+
+.input-field-wizard {
+    @apply rounded-full w-full border-none  px-5 active:ring-0 focus:ring-0 text-black text-xs;
+}
+.textarea-field-wizard {
+    @apply rounded-md w-full border-none  px-5 active:ring-0 focus:ring-0 text-black text-xs;
+}
+
+
+.wizard-group{
+    @apply flex items-start gap-1 md:gap-3
+}
+.wizard-group-custom{
+    @apply flex items-start gap-1 md:gap-3
+}
+
+.wizard-item{
+    @apply flex flex-col gap-3 items-center
+}
+
+.wizard-number{
+    @apply p-3 md:p-5 rounded-full border-2 h-5 text-xs w-5 md:h-14 md:w-14  flex justify-center items-center
+}
+
+.wizard-devider{
+    @apply h-1 my-3 mx-3  md:my-8
+}
+
+.wizard-label{
+    @apply text-[9px] text-center truncate
+}
+
+.btn {
+    @apply py-2 w-32 text-center md:w-32 rounded-full;
+}
+

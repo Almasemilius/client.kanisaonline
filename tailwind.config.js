@@ -15,7 +15,14 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
             colors: {
-                primary: '#2082B3'
+                primary: '#2082B3',
+                secondary: '#2082B3',
+                fading: '#C6C6C6',
+                background: '#F6F6F6',
+                description: '#888888',
+                hint: '#DFDFDF',
+                primaryfaded: '#E2F6FF',
+                accent: '#3d4EC9'
             },
 
             container: {

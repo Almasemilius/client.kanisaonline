@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('billing_information', function (Blueprint $table) {
+        Schema::create('service_events', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('order_id')->constrained();
             $table->string('name');
-            $table->string('phone');
-            $table->string('email');
+            $table->string('minister');
+            $table->string('image_url');
+            $table->string('location');
+            $table->text('description');
+            $table->dateTime('start_date');
+            $table->dateTime('end_date');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('billing_information');
+        Schema::dropIfExists('service_events');
     }
 };

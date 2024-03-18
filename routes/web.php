@@ -1,8 +1,16 @@
 <?php
 
+use App\Livewire\AddMember;
+use App\Livewire\AddReport;
+use App\Livewire\AddService;
 use App\Livewire\AddTicket;
 use App\Livewire\BookingList;
 use App\Livewire\CompleteUserProfile;
+use App\Livewire\EventsList;
+use App\Livewire\ListServices;
+use App\Livewire\ListUsers;
+use App\Livewire\MemberList;
+use App\Livewire\MemberReport;
 use App\Livewire\OrganizerList;
 use App\Livewire\Pages\AddEvent;
 use App\Livewire\Pages\AddPartner;
@@ -24,6 +32,8 @@ use App\Livewire\Pages\PublicationManagement;
 use App\Livewire\Pages\Settingpage;
 use App\Livewire\Pages\ViewPublication;
 use App\Livewire\Profile\UploadProfilePicture;
+use App\Livewire\ViewEvent;
+use App\Livewire\ViewService;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,9 +48,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/','/login');
-Route::get('event-list/{categoryId}/{searchQuery?}', EventList::class)->name('event.list');
-Route::get('booking-show/{event}', BookingPage::class)->name('booking.show');
-Route::get('event-show/{event}', EventShow::class)->name('event.show');
+// Route::get('event-list/{categoryId}/{searchQuery?}', EventList::class)->name('event.list');
+// Route::get('booking-show/{event}', BookingPage::class)->name('booking.show');
+// Route::get('event-show/{event}', EventShow::class)->name('event.show');
 
 // Route::view('dashboard', 'dashboard')category
 //     ->middleware(['auth', 'verified'])
@@ -59,24 +69,40 @@ Route::middleware('auth')->group(function () {
 
     Route::get('setting', Settingpage::class)->name('setting');
 
+    Route::get('add-event/{event?}', AddEvent::class)->name('add.event');
+    Route::get('events-list', EventsList::class)->name('events.list');
+    Route::get('view-event/{churchEvent}', ViewEvent::class)->name('view.event');
 
-    Route::get('event-types/{eventType?}', EventTypes::class)->name('event.types');
-    Route::get('event-type-list', EventTypeList::class)->name('event.type.list');
-    Route::get('event-categories', EventCategory::class)->name('event.categories');
-    Route::get('categories-management', CategoryManagement::class)->name('categories.management');
+    Route::get('add-service/{service?}', AddService::class)->name('add.service');
+    Route::get('list-service', ListServices::class)->name('list.service');
+    Route::get('view-service/{churchService}', ViewService::class)->name('view.service');
 
-    Route::get('ticket-management/{event}', TicketManagement::class)->name('ticket.management');
-    Route::get('add-ticket/{event}/{ticket?}', AddTicket::class)->name('add.ticket');
+    Route::get('add-report', AddReport::class)->name('add.report');
+
+    Route::get('add-member', AddMember::class)->name('add.member');
+
+    Route::get('list-user', ListUsers::class)->name('list.users');
+    Route::get('list-members', MemberList::class)->name('list.members');
+
+    Route::get('member-report', MemberReport::class)->name('member.report');
+
+    // Route::get('event-types/{eventType?}', EventTypes::class)->name('event.types');
+    // Route::get('event-type-list', EventTypeList::class)->name('event.type.list');
+    // Route::get('event-categories', EventCategory::class)->name('event.categories');
+    // Route::get('categories-management', CategoryManagement::class)->name('categories.management');
+
+    // Route::get('ticket-management/{event}', TicketManagement::class)->name('ticket.management');
+    // Route::get('add-ticket/{event}/{ticket?}', AddTicket::class)->name('add.ticket');
 
 
-    Route::get('organizers/{organizer?}', Organizers::class)->name('organizers');
-    Route::get('organizer-list', OrganizerList::class)->name('organizer.list');
+    // Route::get('organizers/{organizer?}', Organizers::class)->name('organizers');
+    // Route::get('organizer-list', OrganizerList::class)->name('organizer.list');
 
-    Route::get('partner-management', PartnerManagement::class)->name('partner.management');
-    Route::get('add-partner/{sponsor?}', AddPartner::class)->name('add.partner');
+    // Route::get('partner-management', PartnerManagement::class)->name('partner.management');
+    // Route::get('add-partner/{sponsor?}', AddPartner::class)->name('add.partner');
     
 
-    Route::get('booking-list', BookingList::class)->name('booking.list');
+    // Route::get('booking-list', BookingList::class)->name('booking.list');
     // Route::get('add-partner/{sponsor?}', function(){
     //     dd('jj');
     // })->name('add.partner');
