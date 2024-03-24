@@ -33,10 +33,12 @@ use Carbon\Carbon;
                 </button>
             </div>
             <div x-ref="tabButtons" class="relative inline-grid items-center justify-center w-3/4 h-10 grid-cols-7 p-1 select-none">
-                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Growth</button>
-                <!-- <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Converts</button> -->
-                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Deliverance</button>
-                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Baptism</button>
+                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">General</button>
+                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Guests</button>
+                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Online</button>
+                <!-- <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">New Converts</button> -->
+                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">Baptized</button>
+                <button :id="$id(tabId)" @click="tabButtonClicked($el);" type="button" :class="{ 'border-b-4 text-black border-primary' : tabButtonActive($el) }" class="tab-style">FHS</button>
             </div>
 
         </div>
@@ -65,7 +67,7 @@ use Carbon\Carbon;
                     </div>
 
                 </div>
-                <canvas id="myChart" style="position: relative; height:70vh; width:70vw"></canvas>
+                <canvas id="generalChart" style="position: relative; height:70vh; width:70vw"></canvas>
             </div>
         </div>
         <div :id="$id(tabId + '-content')" x-show="tabContentActive($el)" class="relative w-full" x-cloak>
@@ -93,7 +95,7 @@ use Carbon\Carbon;
                     </div>
 
                 </div>
-                <canvas id="deliveranceChart" style="position: relative; height:70vh; width:70vw"></canvas>
+                <canvas id="guestChart" style="position: relative; height:70vh; width:70vw"></canvas>
             </div>
         </div>
         <div :id="$id(tabId + '-content')" x-show="tabContentActive($el)" class="relative w-full" x-cloak>
@@ -121,7 +123,35 @@ use Carbon\Carbon;
                     </div>
 
                 </div>
-                <canvas id="baptismChart" wire:ignore style="position: relative; height:70vh; width:70vw"></canvas>
+                <canvas id="onlineChart" style="position: relative; height:70vh; width:70vw"></canvas>
+            </div>
+        </div>
+        <div :id="$id(tabId + '-content')" x-show="tabContentActive($el)" class="relative w-full" x-cloak>
+            <div class="bg-white w-full p-10">
+                <div class="w-full flex justify-between">
+                    <span>Total|</span>
+                    <div>
+                        <div class="flex items-center gap-3">
+                            <span>Filter By</span>
+                            <div class="w-40">
+                                <select wire:model.live='member_group' name="yearSelect" id="yearSelect" class="input-field-wizard bg-background h-10">
+                                    <option value="">All</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                            <div class="w-40">
+                                <select wire:model='' name="yearSelect" id="yearSelect" class="input-field-wizard bg-background h-10">
+                                    <option value="">All</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <canvas id="baptizedChart" style="position: relative; height:70vh; width:70vw"></canvas>
             </div>
         </div>
 
@@ -271,12 +301,29 @@ use Carbon\Carbon;
     </script> -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var ctx = document.getElementById('myChart').getContext('2d');
+            var ctx = document.getElementById('generalChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    datasets: @json($data)
+                    datasets: @json($attendendanceData)
+                },
+                options: {
+                    scales: {
+                        x: {
+                            position: 'bottom' // This will move the x-axis labels to the bottom
+                        }
+                    }
+                }
+            });
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            var ctx = document.getElementById('guestChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+                    datasets: @json($guestData)
                     //     datasets: [
                     //         {
                     //         label: 'My Dataset',
@@ -304,28 +351,12 @@ use Carbon\Carbon;
             });
         });
         document.addEventListener("DOMContentLoaded", function() {
-            var ctx = document.getElementById('deliveranceChart').getContext('2d');
+            var ctx = document.getElementById('onlineChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-                    datasets: @json($deliveranceData)
-                    //     datasets: [
-                    //         {
-                    //         label: 'My Dataset',
-                    //         data: [65, 59, 80, 81, 56, 55, 40],
-                    //         fill: false,
-                    //         borderColor: 'rgb(75, 192, 192)',
-                    //         tension: 0.1,
-                    //     },
-                    //         {
-                    //         label: 'My Dataset',
-                    //         data: [20, 14, 16, 21, 77, 30, 22],
-                    //         fill: false,
-                    //         borderColor: 'rgb(75, 221, 200)',
-                    //         tension: 0.1,
-                    //     },
-                    //  ]
+                    datasets: @json($onlineData)
                 },
                 options: {
                     scales: {
@@ -337,28 +368,12 @@ use Carbon\Carbon;
             });
         });
         document.addEventListener("DOMContentLoaded", function() {
-            var ctx = document.getElementById('baptismChart').getContext('2d');
+            var ctx = document.getElementById('baptizedChart').getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
                     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
                     datasets: @json($baptismData)
-                    //     datasets: [
-                    //         {
-                    //         label: 'My Dataset',
-                    //         data: [65, 59, 80, 81, 56, 55, 40],
-                    //         fill: false,
-                    //         borderColor: 'rgb(75, 192, 192)',
-                    //         tension: 0.1,
-                    //     },
-                    //         {
-                    //         label: 'My Dataset',
-                    //         data: [20, 14, 16, 21, 77, 30, 22],
-                    //         fill: false,
-                    //         borderColor: 'rgb(75, 221, 200)',
-                    //         tension: 0.1,
-                    //     },
-                    //  ]
                 },
                 options: {
                     scales: {

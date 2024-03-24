@@ -4,6 +4,7 @@ use App\Livewire\AddMember;
 use App\Livewire\AddReport;
 use App\Livewire\AddService;
 use App\Livewire\AddTicket;
+use App\Livewire\AttendanceReport;
 use App\Livewire\BookingList;
 use App\Livewire\CompleteUserProfile;
 use App\Livewire\EventsList;
@@ -85,6 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('list-members', MemberList::class)->name('list.members');
 
     Route::get('member-report', MemberReport::class)->name('member.report');
+    Route::get('attendance-report', AttendanceReport::class)->name('attendance.report');
 
     // Route::get('event-types/{eventType?}', EventTypes::class)->name('event.types');
     // Route::get('event-type-list', EventTypeList::class)->name('event.type.list');
